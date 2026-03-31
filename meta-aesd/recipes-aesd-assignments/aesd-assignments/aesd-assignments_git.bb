@@ -17,9 +17,10 @@ SRCREV = "6a6e222cf15ed21c09114dbfb8ee82f6f99a9df8"
 S = "${WORKDIR}/git/server"
 
 # installing init.d
-# inherit update-rc.d
-# INITSCRIPT_PACKAGES = "${PN}"
-# INITSCRIPT_names:${PN} = "START_SCRIPT_NAME_HERE"
+inherit update-rc.d
+INITSCRIPT_PACKAGES = "${PN}"
+#INITSCRIPT_PARAMS:"${PN}" = "defaults"
+INITSCRIPT_NAME:${PN} = "S99aesdsocket"
 # this part is here and the above part is up in the receipe top
 
 # TODO: Add the aesdsocket application and any other files you need to install
@@ -62,11 +63,15 @@ do_install () {
 	# ls -al ${D}${bindir}
 	# echo "ls -al"
 	# ls -al 
-	install -d ${D}${sysconfdir}/init.d
-    # install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d
-    install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d/aesdsocket
+	# install server socket in binary dir (/usr/bin)
+	install -d ${D}${bindir}/
     install -m 0755 ${S}/aesdsocket ${D}${bindir}
-    install -m 0755 ${S}/S99aesdsocket ${D}${bindir}
-	echo "installed something !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
+
+
+	# install server script (/etc/init.d/{script-name})
+	install -d ${D}${sysconfdir}/init.d
+    install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d
+	echo "done with this for now"
 
 }
