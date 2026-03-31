@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-eyas-UC;pro
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "c1557dda0baa13457f747d90e8315ac6d6193adb"
+SRCREV = "6a6e222cf15ed21c09114dbfb8ee82f6f99a9df8"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -63,7 +63,8 @@ do_install () {
 	# echo "ls -al"
 	# ls -al 
 	install -d ${D}${sysconfdir}/init.d
-    install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d
+    # install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d
+    install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d/aesdsocket
     install -m 0755 ${S}/aesdsocket ${D}${bindir}
     install -m 0755 ${S}/S99aesdsocket ${D}${bindir}
 	echo "installed something !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
