@@ -28,7 +28,7 @@ FILES:${PN} += "${bindir}/aesdsocket"
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
 TARGET_LDFLAGS += "-pthread -lrt"
-TARGET_CFLAGS += "-Wall -g -werror"
+TARGET_CFLAGS += "-Wall -g -Werror"
 TARGET ?= "aesdsocket"
 # TARGET_CROSS_COMPILE ?= 
 
