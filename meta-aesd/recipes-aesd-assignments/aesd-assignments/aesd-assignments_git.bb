@@ -62,7 +62,8 @@ do_install () {
 	# ls -al ${D}${bindir}
 	# echo "ls -al"
 	# ls -al 
-	
+	install -d ${D}${sysconfdir}/init.d
+    install -m 0755 ${S}/S99aesdsocket ${D}${sysconfdir}/init.d
     install -m 0755 ${S}/aesdsocket ${D}${bindir}
     install -m 0755 ${S}/S99aesdsocket ${D}${bindir}
 	echo "installed something !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
