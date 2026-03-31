@@ -1,4 +1,5 @@
 build
+actions-runner/
 .vscode
 valgrind-out.txt
 test.sh.log
